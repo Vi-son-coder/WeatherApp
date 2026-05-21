@@ -1,9 +1,15 @@
 import * as dom from "./dom.js";
-getDataWeather();
+
+dom.UIWeather.Search__icon.addEventListener("click", display);
 
 async function getLocation() {
+  let Search = dom.UIWeather.Search.value;
+  Search = Search.normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replaceAll(/\s/g, "");
+  Search = Search.charAt(0).toUpperCase() + Search.slice(1);
   let res = await fetch(
-    "https://api.openweathermap.org/geo/1.0/direct?q=Hanoi&limit=1&appid=75949933bea2f141091be31cbbb60d9f",
+    `https://api.openweathermap.org/geo/1.0/direct?q=${Search}&limit=1&appid=75949933bea2f141091be31cbbb60d9f`,
   );
   let data = await res.json();
   return data;
@@ -227,6 +233,8 @@ async function display() {
   let dataWeek = data.dataWeatherWeek;
   let Today = await getToday();
   let timezone = dataCurrent.timezone;
+  let Search = dom.UIWeather.Search.value.toUpperCase();
+  dom.UIWeather.Area.innerHTML = `${Search}`;
   dom.UIWeather.Day.innerHTML = `${Today.day}, ${Today.month} ${Today.date}`;
   dom.UIWeather.Temp.innerHTML = `${Math.round(dataCurrent.main.temp)}`;
   if (dataCurrent.weather.length === 0 || !dataCurrent.weather) return;
@@ -307,13 +315,13 @@ async function display() {
             <div class="flex flex-col items-center">
               <div class="icon">
                 ${weatherIcons[data.icon]}
-                <p class="percen">${data.pop*100}%</p>
+                <p class="percen">${data.pop * 100}%</p>
               </div>
             </div>
             <div class="flex flex-1 items-center gap-2">
               <p class="min_temp">${Math.round(data.MinTempDay)}°</p>
               <div class="contain_lim">
-                <div class="lim" style="width:${((data.MaxTempDay - data.MinTempDay) /(Day_forecast_data.MinMaxTempWeek.MaxTempWeek - Day_forecast_data.MinMaxTempWeek.MinTempWeek)) * 100}%; left:${((data.MinTempDay - Day_forecast_data.MinMaxTempWeek.MinTempWeek) / (Day_forecast_data.MinMaxTempWeek.MaxTempWeek - Day_forecast_data.MinMaxTempWeek.MinTempWeek)) * 100}%"></div>
+                <div class="lim" style="width:${((data.MaxTempDay - data.MinTempDay) / (Day_forecast_data.MinMaxTempWeek.MaxTempWeek - Day_forecast_data.MinMaxTempWeek.MinTempWeek)) * 100}%; left:${((data.MinTempDay - Day_forecast_data.MinMaxTempWeek.MinTempWeek) / (Day_forecast_data.MinMaxTempWeek.MaxTempWeek - Day_forecast_data.MinMaxTempWeek.MinTempWeek)) * 100}%"></div>
               </div>
               <p class="index_time max_temp">${Math.round(data.MaxTempDay)}°</p>
             </div>

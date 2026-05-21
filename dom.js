@@ -1,6 +1,8 @@
 const UIWeather = {
+  Search:document.querySelector(".Search"),
+  Search__icon: document.querySelector(".Search__icon"),
   Nation: document.querySelector(".nation"),
-  Area: document.querySelector(".area"),
+  Area: document.querySelector(".Area"),
   Day: document.querySelector(".Day"),
   Temp: document.querySelector(".Temp"),
   Weather__description: document.querySelector(".Weather__description"),
