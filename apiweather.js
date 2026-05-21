@@ -8,6 +8,9 @@ async function getLocation() {
     .replace(/[\u0300-\u036f]/g, "")
     .replaceAll(/\s/g, "");
   Search = Search.charAt(0).toUpperCase() + Search.slice(1);
+  if(Search == ""){
+    Search = "hà nội";
+  }
   let res = await fetch(
     `https://api.openweathermap.org/geo/1.0/direct?q=${Search}&limit=1&appid=75949933bea2f141091be31cbbb60d9f`,
   );
@@ -233,7 +236,11 @@ async function display() {
   let dataWeek = data.dataWeatherWeek;
   let Today = await getToday();
   let timezone = dataCurrent.timezone;
-  let Search = dom.UIWeather.Search.value.toUpperCase();
+  let Search = dom.UIWeather.Search.value;
+  if(Search == ""){
+    Search = "hà nội";
+  }
+  Search = Search.toUpperCase();
   dom.UIWeather.Area.innerHTML = `${Search}`;
   dom.UIWeather.Day.innerHTML = `${Today.day}, ${Today.month} ${Today.date}`;
   dom.UIWeather.Temp.innerHTML = `${Math.round(dataCurrent.main.temp)}`;
