@@ -1,0 +1,69 @@
+@import "tailwindcss";
+@layer utilities{
+    .flex-center{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+}
+.foot_temperature{
+    @apply flex flex-col
+}
+.foot_temperature_attribute{
+    @apply bg-[#0b1f45] text-[12px] text-blue-300/50;
+}
+.block{
+    @apply p-4 border rounded-2xl bg-[#0b1f45] border-gray-600 flex flex-col leading-6;
+}
+.icon{
+    @apply text-blue-300/50;
+}
+.icon svg{
+    @apply size-4;
+}
+.block_name{
+    @apply text-blue-300/50 text-[10px] tracking-[2px];
+}
+.index{
+    @apply text-white text-sm font-medium;
+}
+.contain_time{
+    @apply flex flex-col items-center p-4  rounded-2xl gap-2;
+}
+.time{
+    @apply text-blue-300/50 text-[11px];
+}
+.index_time{
+    @apply text-white font-medium;
+}
+.percen{
+    @apply text-[10px] text-blue-300/50 
+}
+.line_day{
+    @apply flex items-center w-full border-b border-gray-700 py-3 gap-3;
+}
+.day{
+    @apply text-white w-[50px];
+}
+.min_temp{
+    @apply text-[13px] text-blue-300/50
+}
+.contain_lim{
+    @apply bg-gray-700/50 rounded-4xl h-1 flex-1 relative;
+}
+.lim{
+    @apply h-1 rounded-4xl bg-[linear-gradient(to_right,#1e3a8a,#60a5fd)] absolute
+}
+.contain{
+    @media(width >= theme(--breakpoint-lg)){
+        @apply  grid-rows-7 grid-cols-5;
+    }
+}
+.contain_block{
+    @media(width >= theme(--breakpoint-lg)){
+        @apply col-start-1 row-start-5 col-span-2 row-span-2;
+    }
+}
+.Icon__weather__description svg{
+    @apply size-20;
+}

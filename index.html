@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./src/style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body
+    class="bg-[linear-gradient(to_top,#0f172a_10%,#1e3a8a_80%,#60a5fd_110%)] flex justify-center"
+  >
+    <div class="contain grid grid-cols-1 p-5 gap-6 w-full max-w-[1150px]">
+      <div class="flex justify-between items-center w-full lg:col-span-5">
+        <div class="flex flex-col leading-7 flex-1">
+          <div
+            class="location flex items-center gap-1 text-blue-300 text-[12px]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              class="size-3"
+            >
+              <path
+                fill-rule="evenodd"
+                d="m7.539 14.841.003.003.002.002a.755.755 0 0 0 .912 0l.002-.002.003-.003.012-.009a5.57 5.57 0 0 0 .19-.153 15.588 15.588 0 0 0 2.046-2.082c1.101-1.362 2.291-3.342 2.291-5.597A5 5 0 0 0 3 7c0 2.255 1.19 4.235 2.292 5.597a15.591 15.591 0 0 0 2.046 2.082 8.916 8.916 0 0 0 .189.153l.012.01ZM8 8.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+
+            <span class="tracking-[2px] Nation">VIỆT NAM</span>
+          </div>
+          <h1 class="city text-3xl font-medium text-white Area">HÀ NỘI</h1>
+          <span class="text-sm mt-2 text-blue-300 Day"></span>
+        </div>
+
+        <div class="relative text-blue-300/40 bg-gray-500/10 rounded-3xl">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            class="size-4 absolute top-1/2 -translate-y-1/2 ml-3"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+
+          <input
+            type="text"
+            placeholder="Search city..."
+            class="border w-50 h-10 rounded-3xl pl-9 py-5 outline-none focus:ring-blue-400/70 focus:ring-1"
+          />
+        </div>
+      </div>
+
+      <div
+        class="border grid grid-cols-[1fr_max-content] gap-5 p-10 rounded-2xl border-gray-600 bg-[#0b1f45] lg:row-span-3 lg:col-span-2 overflow-auto"
+      >
+        <div class="temperature flex flex-col">
+          <div class="flex">
+            <span
+              class="font-['Playfair_Display'] text-[140px] leading-none text-white Temp"
+            ></span>
+            <span class="text-4xl text-gray-400">°C</span>
+          </div>
+          <span
+            class="text-blue-300/90 font-medium text-[17px] capitalize Weather__description"
+          ></span>
+          <div class="flex gap-3 text-blue-300/50">
+            <div class="flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                class="size-4"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 14a.75.75 0 0 1-.75-.75V4.56L4.03 7.78a.75.75 0 0 1-1.06-1.06l4.5-4.5a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1-1.06 1.06L8.75 4.56v8.69A.75.75 0 0 1 8 14Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <p>
+                <span class="Hight__temp"></span>
+                °
+              </p>
+            </div>
+            <div class="flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                class="size-4"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 2a.75.75 0 0 1 .75.75v8.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.22 3.22V2.75A.75.75 0 0 1 8 2Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <p><span class="Low__temp"></span>°</p>
+            </div>
+            <span>·</span>
+            <p>
+              Feels like <span><span class="Feels__like"></span>°</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="text-blue-400 Icon__weather__description"></div>
+
+        <div
+          class="flex justify-between col-span-2 border-t border-gray-600 pt-6"
+        >
+          <div class="foot_temperature">
+            <span class="foot_temperature_attribute">HUMIDITY</span>
+            <span class="text-white text-[14px] Humidity">72%</span>
+          </div>
+          <div class="foot_temperature">
+            <span class="foot_temperature_attribute">WIND</span>
+            <span class="text-white text-[14px] Wind">12 mph</span>
+          </div>
+          <div class="foot_temperature">
+            <span class="foot_temperature_attribute">UV INDEX</span>
+            <span class="text-white text-[14px] UV__Index">5 · Moderate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contain_block grid-cols-2 grid grid-rows-2 gap-6">
+        <div class="block">
+          <div class="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+              />
+            </svg>
+          </div>
+          <span class="block_name">VISIBILITY</span>
+          <span class="index Visibility">10 mi</span>
+        </div>
+        <div class="block">
+          <div class="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-droplets-icon lucide-droplets"
+            >
+              <path
+                d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"
+              />
+              <path
+                d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"
+              />
+            </svg>
+          </div>
+          <span class="block_name">DEW POINT</span>
+          <span class="index Dew__point">58°C</span>
+        </div>
+        <div class="block">
+          <div class="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-gauge-icon lucide-gauge"
+            >
+              <path d="m12 14 4-4" />
+              <path d="M3.34 19a10 10 0 1 1 17.32 0" />
+            </svg>
+          </div>
+          <span class="block_name">PRESSURE</span>
+          <span class="index Pressure">1013 hPa</span>
+        </div>
+        <div class="block">
+          <div class="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-wind-icon lucide-wind"
+            >
+              <path d="M12.8 19.6A2 2 0 1 0 14 16H2" />
+              <path d="M17.5 8a2.5 2.5 0 1 1 2 4H2" />
+              <path d="M9.8 4.4A2 2 0 1 1 11 8H2" />
+            </svg>
+          </div>
+          <span class="block_name">WIND</span>
+          <span class="index Wind__direction">12 mph WSW</span>
+        </div>
+      </div>
+
+      <div
+        class="border border-gray-600 flex flex-col gap-3 p-6 rounded-2xl bg-[#0b1f45] lg:row-span-2 lg:col-span-3"
+      >
+        <span class="text-[10px] tracking-[2px] text-blue-300/50"
+          >HOURLY FORECAST</span
+        >
+        <div class="flex gap-2 Hourly__forecast overflow-hidden"></div>
+      </div>
+
+      <div
+        class="border border-gray-600 flex flex-col gap-3 p-6 rounded-2xl bg-[#0b1f45] lg:row-span-4 lg:col-span-3"
+      >
+        <span class="text-[10px] tracking-[2px] text-blue-300/50"
+          >7-DAY FORECAST</span
+        >
+        <div class="Day__forecast"></div>
+      </div>
+    </div>
+    <script type="module" src="./dom.js"></script>
+    <script type="module" src="./apiweather.js"></script>
+  </body>
+</html>
